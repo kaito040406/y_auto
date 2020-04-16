@@ -86,8 +86,63 @@ time.sleep(0.5)
 text = "テスト"
 pyperclip.copy(text)
 time.sleep(0.5)
+
 #以下のコマンドmacとwinで分ける必要がある。
+# 以下mac
 pyautogui.hotkey('command', 'v')
+# 以下win
+# pyautogui.hotkey('ctr', 'v')
+time.sleep(0.5)
+
+# カテゴリ選択へ
+pyautogui.moveTo(50, 640, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+
+# カテゴリ検索へ
+pyautogui.moveTo(140, 630, duration=1.0)
+# クリックして商品名記入
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+search_ward = "PS4"
+pyperclip.copy(search_ward)
+time.sleep(0.5)
+
+#以下のコマンドmacとwinで分ける必要がある。
+# 以下mac
+time.sleep(0.5)
+pyautogui.hotkey('command', 'a')
+time.sleep(0.5)
+pyautogui.hotkey('command', 'v')
+# 以下win
+# pyautogui.hotkey('ctr', 'v')
+time.sleep(0.5)
+
+# 検索ボタンへ移動クリック
+pyautogui.moveTo(800, 630, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+
+# スクロール
+pyautogui.vscroll(-8)
+time.sleep(0.5)
+
+# カテゴリを選択
+pyautogui.moveTo(40, 580, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.vscroll(-10)
+time.sleep(0.5)
+pyautogui.moveTo(500, 620, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
 # screen_x,screen_y = pyautogui.size()
 # pyautogui.moveRel(1370, 40, 0)
 # time.sleep(0.5)
