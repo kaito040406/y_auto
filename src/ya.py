@@ -152,7 +152,7 @@ pyautogui.click()
 time.sleep(0.5)
 pyautogui.vscroll(-10)
 time.sleep(0.5)
-pyautogui.moveTo(140, 790, duration=1.0)
+pyautogui.moveTo(140, 780, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
@@ -160,8 +160,13 @@ pyautogui.moveTo(140, 650, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 
-# テキスト入力
+
+# 横いってクリック
+# 同じ場所に戻る
+# スクロール
 pyautogui.vscroll(-10)
+
+# テキスト入力
 
 
 # screen_x,screen_y = pyautogui.size()
