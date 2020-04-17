@@ -95,7 +95,7 @@ pyautogui.hotkey('command', 'v')
 time.sleep(0.5)
 
 # カテゴリ選択へ
-pyautogui.moveTo(50, 640, duration=1.0)
+pyautogui.moveTo(50, 650, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
@@ -108,7 +108,7 @@ pyautogui.click()
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
-search_ward = "PS4"
+search_ward = "抵抗器単体"
 pyperclip.copy(search_ward)
 time.sleep(0.5)
 
@@ -143,6 +143,27 @@ pyautogui.moveTo(500, 620, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
+
+
+# 状態選択
+pyautogui.moveTo(140, 350, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.vscroll(-10)
+time.sleep(0.5)
+pyautogui.moveTo(140, 790, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(140, 650, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+
+# テキスト入力
+pyautogui.vscroll(-10)
+
+
 # screen_x,screen_y = pyautogui.size()
 # pyautogui.moveRel(1370, 40, 0)
 # time.sleep(0.5)
