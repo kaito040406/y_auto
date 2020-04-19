@@ -36,11 +36,7 @@ import pyperclip
 # time.sleep(4)
 # driver.find_element_by_id('back_originalpage').click();
 
-# -------------------
-# 自分でログインする
-# ynck630vwte@yahoo.co.jp
-# dmvb@15773
-# -------------------
+
 
 
 # -------------------
