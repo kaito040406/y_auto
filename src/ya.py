@@ -1,7 +1,3 @@
-# ブラウザ操作
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import chromedriver_binary
 
 ##PyAutoGUIのモジュール
 import pyautogui
@@ -69,7 +65,8 @@ time.sleep(0.5)
 pyautogui.moveTo(1000, 115, duration=0.5)
 time.sleep(0.5)
 # ここで本当はドラッグコマンド
-pyautogui.moveTo(500, 700, duration=1.0)
+pyautogui.dragTo(500, 700, 1.0, button='left')
+# pyautogui.moveTo(500, 700, duration=1.0)
 # いったんスクロール
 time.sleep(0.5)
 pyautogui.vscroll(-10)
@@ -83,7 +80,7 @@ time.sleep(0.5)
 pyautogui.click()
 # テキスト記入
 time.sleep(0.5)
-text = "テスト"
+text = "BRIDGESTONE(ブリヂストン)ソーラーテールランプSLR100NF700040DGCSLR100N"
 pyperclip.copy(text)
 time.sleep(0.5)
 
@@ -108,7 +105,7 @@ pyautogui.click()
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
-search_ward = "抵抗器単体"
+search_ward = "テールライト"
 pyperclip.copy(search_ward)
 time.sleep(0.5)
 
@@ -176,7 +173,7 @@ time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
 pyautogui.click()
-test_ward = "この商品はとてもいいです。"
+test_ward = "取付タイプ：ドロヨケ止め\r\r◆支払詳細\r【お支払い方法】 Yahoo!かんたん決済r【支払い代金】 落札価格 ＋ 送料\r　※ 銀行振込希望の方は、Yahoo!かんたん決済の銀行振り込みをご利用ください。\r　※ 直接の銀行振込みは、お断りしております。\r\r◆発送詳細\r【送料】 ★ 全国一律料金 ★\r【発送までの日数】 お支払い完了後 1～2日で発送いたします。\r【配送業者】 主にヤマト運輸、日本郵便、佐川急便から発送いたします。また別の業者を使うこともあります。\r\r◆注意事項 ★必ずご確認ください★\r・質問、メッセージの回答は夜になることが多いです。\r・手渡しは対応しておりません。\r・商品によって業者を変えるため【センター留め】【郵便局留め】は対応できません。\r・領収書の同梱は対応しておりません。\r・まとめて取引は、トラブルが多いためお断りしております。\r・不具合以外での返品・交換は対応しておりません。\r・Yahoo!かんたん決済の支払期限を過ぎた場合、落札者都合のキャンセルをいたします。"
 pyperclip.copy(test_ward)
 time.sleep(0.5)
 pyautogui.hotkey('command', 'a')
@@ -279,7 +276,7 @@ time.sleep(0.5)
 pyautogui.moveTo(40, 450, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
-price = "5000"
+price = "2212"
 pyperclip.copy(price)
 time.sleep(0.5)
 pyautogui.hotkey('command', 'a')
@@ -308,7 +305,7 @@ pyautogui.moveTo(40, 700, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
-pyautogui.moveTo(40, 630, duration=1.0)
+pyautogui.moveTo(40, 650, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
@@ -316,11 +313,11 @@ pyautogui.moveTo(40, 760, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
-pyautogui.moveTo(40, 810, duration=1.0)
+pyautogui.moveTo(40, 800, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
-pyautogui.moveTo(40, 770, duration=1.0)
+pyautogui.moveTo(40, 760, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 time.sleep(0.5)
@@ -328,34 +325,50 @@ pyautogui.moveTo(400, 770, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
 pyautogui.vscroll(-26)
-# 金額入力
-# time.sleep(0.5)
-# pyautogui.moveTo(140, 710, duration=1.0)
-# time.sleep(0.5)
-# pyautogui.click()
-# price = "780"
-# pyperclip.copy(price)
-# time.sleep(0.5)
-# pyautogui.hotkey('command', 'a')
-# time.sleep(0.5)
-# pyautogui.hotkey('command', 'v')
 
 
-# screen_x,screen_y = pyautogui.size()
-# pyautogui.moveRel(1370, 40, 0)
-# time.sleep(0.5)
-# pyautogui.dragTo(400, 400, 0.5, button='left')
+# 出品ボタンをクリック
+time.sleep(0.5)
+pyautogui.moveTo(450, 720, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+
+
+# 同意して出品
+time.sleep(0.5)
+pyautogui.moveTo(320, 470, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(500, 520, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+
+# メイン画面へ戻る
+time.sleep(6)
+pyautogui.moveTo(40, 360, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(1)
+pyautogui.moveTo(60, 160, duration=1.0)
+
+# 出品画面へ
+time.sleep(0.5)
+pyautogui.hscroll(50)
+time.sleep(0.5)
+pyautogui.moveTo(60, 160, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+
+# 320 470
+# 500 520
+
+# タイトルは65文字まで
 
 
 
+# 40 360
 
+# 60 160
 
-# driver.quit()
-
-# element = driver.find_element_by_id("twotabsearchtextbox")
-# element.submit()
-# search_url = driver.current_url
-# time.sleep(0.5)
-# driver.quit()
-# time.sleep(0.5)
-# ブラウザ操作
+# 750 220
