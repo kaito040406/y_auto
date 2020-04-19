@@ -66,7 +66,7 @@ import pyperclip
 pyautogui.moveTo(1, 1, duration=0)
 time.sleep(0.5)
 # データの場所に行く
-pyautogui.moveTo(1020, 115, duration=0.5)
+pyautogui.moveTo(1000, 115, duration=0.5)
 time.sleep(0.5)
 # ここで本当はドラッグコマンド
 pyautogui.moveTo(500, 700, duration=1.0)
@@ -162,11 +162,183 @@ pyautogui.click()
 
 
 # 横いってクリック
-# 同じ場所に戻る
+time.sleep(0.5)
+pyautogui.moveTo(650, 650, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+
 # スクロール
+time.sleep(0.5)
 pyautogui.vscroll(-10)
 
 # テキスト入力
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.click()
+test_ward = "この商品はとてもいいです。"
+pyperclip.copy(test_ward)
+time.sleep(0.5)
+pyautogui.hotkey('command', 'a')
+time.sleep(0.5)
+pyautogui.hotkey('command', 'v')
+
+# 上移動しクリックスクロール
+time.sleep(0.5)
+pyautogui.moveTo(650, 250, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+pyautogui.vscroll(-10)
+
+
+# 発送地域選択
+time.sleep(0.5)
+pyautogui.moveTo(140, 650, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.1)
+pyautogui.vscroll(50)
+time.sleep(0.3)
+pyautogui.vscroll(-50)
+time.sleep(0.3)
+pyautogui.moveTo(140, 30, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(650, 650, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+
+
+#送料負担選択
+pyautogui.moveTo(140, 800, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(140, 760, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(650, 650, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+
+
+# 発送方法選択
+time.sleep(0.5)
+pyautogui.vscroll(-26)
+time.sleep(0.5)
+pyautogui.moveTo(40, 660, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.click()
+
+#配送会社指定
+time.sleep(0.5)
+pyautogui.moveTo(100, 660, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.vscroll(-20)
+pyautogui.moveTo(100, 710, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(140, 710, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+price = "780"
+pyperclip.copy(price)
+time.sleep(0.5)
+pyautogui.hotkey('command', 'a')
+time.sleep(0.5)
+pyautogui.hotkey('command', 'v')
+
+
+# 発送までの期間を決める
+time.sleep(0.5)
+pyautogui.vscroll(-10)
+time.sleep(0.5)
+pyautogui.moveTo(140, 500, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(140, 490, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(400, 490, duration=1.0)
+time.sleep(0.5)
+
+
+# 値段入力
+pyautogui.vscroll(-10)
+time.sleep(0.5)
+pyautogui.moveTo(40, 450, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+price = "5000"
+pyperclip.copy(price)
+time.sleep(0.5)
+pyautogui.hotkey('command', 'a')
+time.sleep(0.5)
+pyautogui.hotkey('command', 'v')
+# 即決価格設定
+time.sleep(0.5)
+pyautogui.moveTo(40, 490, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(40, 530, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+decision_price = str(int(price) + 200) 
+pyperclip.copy(decision_price)
+time.sleep(0.5)
+pyautogui.hotkey('command', 'a')
+time.sleep(0.5)
+pyautogui.hotkey('command', 'v')
+
+
+# 終了する日時
+time.sleep(0.5)
+pyautogui.moveTo(40, 700, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(40, 630, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(40, 760, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(40, 810, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(40, 770, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+time.sleep(0.5)
+pyautogui.moveTo(400, 770, duration=1.0)
+time.sleep(0.5)
+pyautogui.click()
+pyautogui.vscroll(-26)
+# 金額入力
+# time.sleep(0.5)
+# pyautogui.moveTo(140, 710, duration=1.0)
+# time.sleep(0.5)
+# pyautogui.click()
+# price = "780"
+# pyperclip.copy(price)
+# time.sleep(0.5)
+# pyautogui.hotkey('command', 'a')
+# time.sleep(0.5)
+# pyautogui.hotkey('command', 'v')
 
 
 # screen_x,screen_y = pyautogui.size()
