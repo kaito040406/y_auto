@@ -13,47 +13,6 @@ import shutil
 import pyperclip
 
 
-# ブラウザ操作
-# mail_adress = "ynck630vwte@yahoo.co.jp"
-# pass_ward = "dmvb@15773"
-# options = Options()
-# driver = webdriver.Chrome(chrome_options=options)
-
-# 出品画面にアクセス
-# url = "https://auctions.yahoo.co.jp/sell/jp/show/submit?category=0"
-# driver.get(url)
-# driver.delete_all_cookies()
-# time.sleep(5)
-# element = driver.find_element_by_id("username");
-# element.send_keys(mail_adress)
-# time.sleep(3)
-# driver.find_element_by_id('btnNext').click();
-# time.sleep(3)
-# element = driver.find_element_by_id("passwd");
-# element.send_keys(pass_ward)
-# time.sleep(3)
-# driver.find_element_by_id('btnSubmit').click();
-# time.sleep(4)
-# driver.find_element_by_id('back_originalpage').click();
-
-
-
-
-# -------------------
-# 画像データを引っ張ってくる
-
-# target_dir = 'images/active'
-# time.sleep(1)
-# shutil.rmtree(target_dir)
-# os.mkdir(target_dir)
-# time.sleep(1)
-# new_path = shutil.move('images/stock/image' + "1", 'images/active/')
-# time.sleep(1)
-# pyautogui.click(x=300, y=300)
-# time.sleep(1)
-# -------------------
-
-
 # 初期ポジ
 pyautogui.moveTo(1, 1, duration=0)
 time.sleep(0.5)
@@ -355,16 +314,4 @@ time.sleep(0.5)
 pyautogui.moveTo(60, 160, duration=1.0)
 time.sleep(0.5)
 pyautogui.click()
-
-# 320 470
-# 500 520
-
 # タイトルは65文字まで
-
-
-
-# 40 360
-
-# 60 160
-
-# 750 220
