@@ -49,7 +49,7 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.moveTo(50, 650, duration=1.0)
   time.sleep(0.5)
   pyautogui.click()
-  time.sleep(0.5)
+  time.sleep(5)
 
   # カテゴリ検索へ
   pyautogui.moveTo(140, 630, duration=1.0)
@@ -83,13 +83,15 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
 
   # カテゴリを選択
-  pyautogui.moveTo(30, 580, duration=1.0)
+  pyautogui.click()
+  time.sleep(0.5)
+  pyautogui.moveTo(30, 585, duration=1.0)
   time.sleep(0.5)
   pyautogui.click()
   time.sleep(0.5)
-  pyautogui.vscroll(-10)
+  pyautogui.vscroll(-100)
   time.sleep(0.5)
-  pyautogui.moveTo(500, 620, duration=1.0)
+  pyautogui.moveTo(550, 575, duration=1.0)
   time.sleep(0.5)
   pyautogui.click()
   time.sleep(0.5)
@@ -97,7 +99,8 @@ def robbot(category ,title, text, price, traffic):
   # ここは少なすぎると出品に戻れなくなる
   # とりあえずは、カテゴリーふたつ検索で10個以上の列を作る
   # ドラッグしてコピーして解析できないか検査
-
+  #  550 575
+  # 一番島までスクロールさせ、上記の座標でギリギリ入る
 
   # 状態選択
   # pyautogui.moveTo(140, 350, duration=1.0)
@@ -285,12 +288,12 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.vscroll(3000)
   time.sleep(0.5)
   pyautogui.moveTo(80, 160, duration=1.0)
-  time.sleep(1)
+  time.sleep(0.5)
   pyautogui.click()
 
   time.sleep(0.5)
   pyautogui.moveTo(570, 170, duration=1.0)
-  time.sleep(0.5)
+  time.sleep(10)
   pyautogui.click()
   time.sleep(0.5)
   pyautogui.hscroll(-3000)

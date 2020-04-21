@@ -13,7 +13,7 @@ import pyperclip
 import csv
 import random
 import string
-import test2
+import robbot
 
 check = True
 title_ng = 0
@@ -69,7 +69,7 @@ with open("input.csv") as f:
 
           #--------------------
           #ここからロボットへデータを渡す
-          test2.robbot(y_cate, y_title, y_text, y_price, y_traffic)          
+          robbot.robbot(y_cate, y_title, y_text, y_price, y_traffic)          
           #--------------------
 
           # -------------------
