@@ -11,13 +11,14 @@ import time
 import array
 import shutil
 import pyperclip
+import url_check
 
 def robbot(category ,title, text, price, traffic):
   # 初期ポジ
   pyautogui.moveTo(1, 1, duration=0)
-  time.sleep(0.5)
+  time.sleep(0.3)
   # データの場所に行く
-  pyautogui.moveTo(1000, 115, duration=0.5)
+  pyautogui.moveTo(1000, 115, duration=0)
   time.sleep(0.5)
   # ここで本当はドラッグコマンド
   pyautogui.dragTo(500, 700, 1.0, button='left')
