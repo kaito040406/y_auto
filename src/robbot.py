@@ -23,7 +23,7 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.moveTo(1000, 115, duration=0)
   time.sleep(0.5)
   # ここで本当はドラッグコマンド
-  pyautogui.dragTo(500, 700, 1.0, button='left')
+  pyautogui.dragTo(500, 700, 0.5, button='left')
   # pyautogui.moveTo(500, 700, duration=1.0)
   # いったんスクロール
   time.sleep(0.5)
@@ -79,32 +79,36 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
 
   # 検索ボタンへ移動クリック
-  pyautogui.moveTo(800, 630, duration=1.0)
+  pyautogui.moveTo(800, 630, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   time.sleep(0.5)
 
   # スクロール
   pyautogui.vscroll(-8)
-  time.sleep(0.5)
+  time.sleep(0.2)
 
   # カテゴリを選択
+  pyautogui.moveTo(750, 630, duration=0.5)
+  time.sleep(0.2)
   pyautogui.click()
   time.sleep(0.5)
-  pyautogui.moveTo(30, 585, duration=1.0)
+  pyautogui.moveTo(30, 585, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   time.sleep(0.5)
   pyautogui.vscroll(-100)
   time.sleep(0.5)
 
-  url = url_check.url_check_f(url)
+  url = url_check.url_check_t(url)
 
-  pyautogui.moveTo(550, 575, duration=1.0)
+  pyautogui.moveTo(550, 575, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
-  time.sleep(0.5)
-
+  time.sleep(0.2)
+  url = url_check.url_check_f(url)
+  time.sleep(0.2)
+  pyautogui.moveTo(550, 575, duration=0)
   # ここは少なすぎると出品に戻れなくなる
   # とりあえずは、カテゴリーふたつ検索で10個以上の列を作る
   # ドラッグしてコピーして解析できないか検査
@@ -129,7 +133,7 @@ def robbot(category ,title, text, price, traffic):
 
   # 横いってクリック
   time.sleep(0.5)
-  pyautogui.moveTo(650, 650, duration=1.0)
+  pyautogui.moveTo(650, 750, duration=0)
   time.sleep(0.5)
   pyautogui.click()
 
@@ -151,7 +155,7 @@ def robbot(category ,title, text, price, traffic):
   # 上移動しクリックスクロール
   time.sleep(0.5)
   url = url_check.url_check_t(url)
-  pyautogui.moveTo(650, 250, duration=1.0)
+  pyautogui.moveTo(650, 350, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   pyautogui.vscroll(-50)
@@ -240,7 +244,7 @@ def robbot(category ,title, text, price, traffic):
 
   # 値段入力
   time.sleep(0.5)
-  pyautogui.moveTo(50, 670, duration=1.0)
+  pyautogui.moveTo(50, 670, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   pyperclip.copy(price)
@@ -251,11 +255,11 @@ def robbot(category ,title, text, price, traffic):
   # 即決価格設定
   url = url_check.url_check_t(url)
   time.sleep(0.5)
-  pyautogui.moveTo(50, 720, duration=1.0)
+  pyautogui.moveTo(50, 720, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   time.sleep(0.5)
-  pyautogui.moveTo(50, 760, duration=1.0)
+  pyautogui.moveTo(50, 760, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   decision_price = str(int(price) + 200) 
@@ -270,11 +274,11 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyautogui.vscroll(-10)
   time.sleep(0.5)
-  pyautogui.moveTo(50, 540, duration=1.0)
+  pyautogui.moveTo(50, 540, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   time.sleep(0.5)
-  pyautogui.moveTo(50, 490, duration=1.0)
+  pyautogui.moveTo(50, 490, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   # time.sleep(0.5)
@@ -298,19 +302,19 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyautogui.vscroll(3000)
   time.sleep(0.5)
-  pyautogui.moveTo(80, 160, duration=1.0)
+  pyautogui.moveTo(80, 160, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
 
   time.sleep(2)
   url = url_check.url_check_f(url)
-  pyautogui.moveTo(570, 170, duration=1.0)
+  pyautogui.moveTo(570, 170, duration=0.5)
   time.sleep(5)
   pyautogui.click()
   time.sleep(0.5)
   pyautogui.hscroll(-3000)
   time.sleep(0.5)
-  pyautogui.moveTo(740, 220, duration=1.0)
+  pyautogui.moveTo(740, 220, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   url = url_check.url_check_f(url)
