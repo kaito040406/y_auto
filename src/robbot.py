@@ -14,6 +14,8 @@ import pyperclip
 import url_check
 
 def robbot(category ,title, text, price, traffic):
+  # 現在のurl取得
+  url = url_check.url_check()
   # 初期ポジ
   pyautogui.moveTo(1, 1, duration=0)
   time.sleep(0.3)
@@ -28,7 +30,7 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.vscroll(-10)
   # 商品名へ移動
   time.sleep(0.5)
-  pyautogui.moveTo(50, 500, duration=1.0)
+  pyautogui.moveTo(50, 500, duration=0.5)
   # クリックして商品名記入
   time.sleep(0.5)
   pyautogui.click()
@@ -38,7 +40,6 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyperclip.copy(title)
   time.sleep(0.5)
-
   #以下のコマンドmacとwinで分ける必要がある。
   # 以下mac
   pyautogui.hotkey('command', 'v')
@@ -46,14 +47,18 @@ def robbot(category ,title, text, price, traffic):
   # pyautogui.hotkey('ctr', 'v')
   time.sleep(0.5)
 
+  # url確認
+  url = url_check.url_check_t(url)
+
   # カテゴリ選択へ
-  pyautogui.moveTo(50, 650, duration=1.0)
+  pyautogui.moveTo(50, 650, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
   time.sleep(5)
+  url = url_check.url_check_f(url)
 
   # カテゴリ検索へ
-  pyautogui.moveTo(140, 630, duration=1.0)
+  pyautogui.moveTo(140, 630, duration=0.5)
   # クリックして商品名記入
   time.sleep(0.5)
   pyautogui.click()
@@ -92,6 +97,9 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyautogui.vscroll(-100)
   time.sleep(0.5)
+
+  url = url_check.url_check_f(url)
+
   pyautogui.moveTo(550, 575, duration=1.0)
   time.sleep(0.5)
   pyautogui.click()
@@ -142,6 +150,7 @@ def robbot(category ,title, text, price, traffic):
 
   # 上移動しクリックスクロール
   time.sleep(0.5)
+  url = url_check.url_check_t(url)
   pyautogui.moveTo(650, 250, duration=1.0)
   time.sleep(0.5)
   pyautogui.click()
@@ -240,6 +249,7 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyautogui.hotkey('command', 'v')
   # 即決価格設定
+  url = url_check.url_check_t(url)
   time.sleep(0.5)
   pyautogui.moveTo(50, 720, duration=1.0)
   time.sleep(0.5)
@@ -292,9 +302,10 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyautogui.click()
 
-  time.sleep(0.5)
+  time.sleep(2)
+  url = url_check.url_check_f(url)
   pyautogui.moveTo(570, 170, duration=1.0)
-  time.sleep(10)
+  time.sleep(5)
   pyautogui.click()
   time.sleep(0.5)
   pyautogui.hscroll(-3000)
@@ -302,3 +313,4 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.moveTo(740, 220, duration=1.0)
   time.sleep(0.5)
   pyautogui.click()
+  url = url_check.url_check_f(url)
