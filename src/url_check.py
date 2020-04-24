@@ -12,6 +12,8 @@ import array
 import shutil
 import pyperclip
 import logging
+from line_msseage import y_auto_message
+import get_api
 
 def url_check():
   logging.info('info %s %s', 'URL取得', 'Start')
@@ -49,7 +51,8 @@ def url_check_t(befor_url):
     return now
   else:
     logging.error('error %s %s', 'エラー', 'URLに異常があります')
-    print("問題が発生しました。")
+    message = y_auto_message(get_api.get_api_token())
+    message.sendmessage("2")
     sys.exit()
 
 def url_check_f(befor_url):
@@ -71,5 +74,6 @@ def url_check_f(befor_url):
     return now
   else:
     logging.error('error %s %s', 'エラー', 'URLに異常があります')
-    print("問題が発生しました。")
+    message = y_auto_message(get_api.get_api_token())
+    message.sendmessage("2")
     sys.exit()

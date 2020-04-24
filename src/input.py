@@ -15,7 +15,8 @@ import random
 import string
 import robbot
 import logging
-
+from line_msseage import y_auto_message
+import get_api
 
 
 logging.basicConfig(filename='log/logger.log', level=logging.DEBUG)
@@ -90,7 +91,9 @@ with open("input.csv") as f:
           # -------------------
         except FileNotFoundError:
           logging.info('info %s %s', '出品が終了しました', '')
-          print("画像がなくなりました")
+          message = y_auto_message(get_api.get_api_token())
+          message.sendmessage("1")
+
           break
         
       i = i + 1
