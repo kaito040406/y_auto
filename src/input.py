@@ -14,12 +14,19 @@ import csv
 import random
 import string
 import robbot
+import logging
 
+
+
+logging.basicConfig(filename='log/logger.log', level=logging.DEBUG)
+formatter = '%(levelname)s : %(asctime)s : %(message)s'
+logging.basicConfig(level=logging.DEBUG, format=formatter)
 check = True
 title_ng = 0
 text_ng = 0
 i = 1
 k = 0
+logging.info('info %s %s', 'CSV読み込み', 'Start')
 with open("input.csv") as f:
   reader = csv.reader(f)
   with open("NG_WORD.csv") as ngw:
@@ -32,6 +39,7 @@ with open("input.csv") as f:
       traffic = row[6]
       # --------------------
       # バリテーション 機能
+      logging.info('info %s %s', 'NGワードバリテーション ', 'Start')
       for ng in readerng:
         if ng[0] in title:
           check = False
@@ -40,21 +48,27 @@ with open("input.csv") as f:
           check = False
           text_ng  = text_ng  + 1
         k = k + 1
+      logging.info('info %s %s', 'NGワードバリテーション ', 'End')
       #-----------------------
 
       if check == True:
         try:
+          logging.info('info %s %s', 'タイトルチェック', 'Start')
           try:
+            logging.info('info %s %s', '要タイトルチェック', '')
             y_title = title[0:50]
           except IndexError:
-            
+            logging.info('info %s %s', '否タイトルチェック', '')
             y_title = title
+          logging.info('info %s %s', 'タイトルチェック', 'End')
+
           y_cate = search_ct
           y_text = text
           y_price = str(price)
           y_traffic = str(traffic)
           # -------------------
           # 画像データを引っ張ってくる
+          logging.info('info %s %s', '画像インポート', 'Start')
           target_dir = 'images/active'
           time.sleep(1)
           shutil.rmtree(target_dir)
@@ -66,6 +80,7 @@ with open("input.csv") as f:
           time.sleep(0.5)
           new_path = shutil.move('images/stock/' + image_name + ".jpg", 'images/active/')
           time.sleep(1)
+          logging.info('info %s %s', '画像インポート', 'End')
 
           #--------------------
           #ここからロボットへデータを渡す
@@ -74,6 +89,7 @@ with open("input.csv") as f:
 
           # -------------------
         except FileNotFoundError:
+          logging.info('info %s %s', '出品が終了しました', '')
           print("画像がなくなりました")
           break
         

@@ -12,20 +12,22 @@ import array
 import shutil
 import pyperclip
 import url_check
+import logging
 
 def robbot(category ,title, text, price, traffic):
   # 現在のurl取得
   url = url_check.url_check()
   # 初期ポジ
+  logging.info('info %s %s', 'ヤフオクへ画像データをインポート', 'Start')
   pyautogui.moveTo(1, 1, duration=0)
   time.sleep(0.3)
   # データの場所に行く
   pyautogui.moveTo(1000, 115, duration=0)
   time.sleep(0.5)
-  # ここで本当はドラッグコマンド
   pyautogui.dragTo(500, 700, 0.5, button='left')
-  # pyautogui.moveTo(500, 700, duration=1.0)
+  logging.info('info %s %s', 'ヤフオクへ画像データをインポート', 'End')
   # いったんスクロール
+  logging.info('info %s %s', '商品タイトル記入', 'Start')
   time.sleep(0.5)
   pyautogui.vscroll(-10)
   # 商品名へ移動
@@ -40,17 +42,15 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyperclip.copy(title)
   time.sleep(0.5)
-  #以下のコマンドmacとwinで分ける必要がある。
-  # 以下mac
   pyautogui.hotkey('command', 'v')
-  # 以下win
-  # pyautogui.hotkey('ctr', 'v')
   time.sleep(0.5)
+  logging.info('info %s %s', '商品タイトル記入', 'End')
 
   # url確認
   url = url_check.url_check_t(url)
 
   # カテゴリ選択へ
+  logging.info('info %s %s', 'カテゴリチェック', 'Start')
   pyautogui.moveTo(50, 650, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
@@ -107,28 +107,12 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.click()
   time.sleep(0.2)
   url = url_check.url_check_f(url)
+  logging.info('info %s %s', 'カテゴリチェック', 'End')
+  logging.info('info %s %s', '商品テキスト入力', 'Start')
   time.sleep(0.2)
   pyautogui.moveTo(550, 575, duration=0)
-  # ここは少なすぎると出品に戻れなくなる
-  # とりあえずは、カテゴリーふたつ検索で10個以上の列を作る
-  # ドラッグしてコピーして解析できないか検査
-  #  550 575
-  # 一番島までスクロールさせ、上記の座標でギリギリ入る
-
-  # 状態選択
-  # pyautogui.moveTo(140, 350, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
   time.sleep(0.5)
   pyautogui.vscroll(-10)
-  # time.sleep(0.5)
-  # pyautogui.moveTo(140, 780, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(140, 650, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
 
 
   # 横いってクリック
@@ -151,7 +135,9 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.hotkey('command', 'a')
   time.sleep(0.5)
   pyautogui.hotkey('command', 'v')
+  logging.info('info %s %s', '商品テキスト入力', 'End')
 
+  logging.info('info %s %s', '商品テキスト', 'Start')
   # 上移動しクリックスクロール
   time.sleep(0.5)
   url = url_check.url_check_t(url)
@@ -159,88 +145,6 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyautogui.click()
   pyautogui.vscroll(-50)
-
-
-  # # 発送地域選択
-  # time.sleep(0.5)
-  # pyautogui.moveTo(140, 650, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.1)
-  # pyautogui.vscroll(50)
-  # time.sleep(0.3)
-  # pyautogui.vscroll(-50)
-  # time.sleep(0.3)
-  # pyautogui.moveTo(140, 30, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(650, 650, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-
-
-  #送料負担選択
-  # pyautogui.moveTo(140, 800, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(140, 760, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(650, 650, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-
-
-  # # 発送方法選択
-  # time.sleep(0.5)
-  # pyautogui.vscroll(-26)
-  # time.sleep(0.5)
-  # pyautogui.moveTo(40, 660, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.click()
-
-  # #配送会社指定
-  # time.sleep(0.5)
-  # pyautogui.moveTo(100, 660, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.vscroll(-20)
-  # pyautogui.moveTo(100, 710, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(140, 710, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # pyperclip.copy(traffic)
-  # time.sleep(0.5)
-  # pyautogui.hotkey('command', 'a')
-  # time.sleep(0.5)
-  # pyautogui.hotkey('command', 'v')
-
-
-  # 発送までの期間を決める
-  # time.sleep(0.5)
-  # pyautogui.vscroll(-10)
-  # time.sleep(0.5)
-  # pyautogui.moveTo(140, 500, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(140, 490, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(400, 490, duration=1.0)
-  # time.sleep(0.5)
-
 
   # 値段入力
   time.sleep(0.5)
@@ -268,8 +172,9 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.hotkey('command', 'a')
   time.sleep(0.5)
   pyautogui.hotkey('command', 'v')
+  logging.info('info %s %s', '商品テキスト', 'End')
 
-
+  logging.info('info %s %s', '日時設定', 'Start')
   # 終了する日時
   time.sleep(0.5)
   pyautogui.vscroll(-10)
@@ -281,24 +186,10 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.moveTo(50, 490, duration=0.5)
   time.sleep(0.5)
   pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(40, 760, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(40, 800, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(40, 760, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
-  # time.sleep(0.5)
-  # pyautogui.moveTo(400, 770, duration=1.0)
-  # time.sleep(0.5)
-  # pyautogui.click()
+  logging.info('info %s %s', '日時設定', 'End')
 
 
+  logging.info('info %s %s', 'メインページバック', 'Start')
   time.sleep(0.5)
   pyautogui.vscroll(3000)
   time.sleep(0.5)
@@ -318,3 +209,4 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.5)
   pyautogui.click()
   url = url_check.url_check_f(url)
+  logging.info('info %s %s', 'メインページバック', 'End')
