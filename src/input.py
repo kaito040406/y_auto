@@ -25,7 +25,7 @@ logging.basicConfig(level=logging.DEBUG, format=formatter)
 check = True
 title_ng = 0
 text_ng = 0
-i = 1
+i = 0
 k = 0
 logging.info('info %s %s', 'CSV読み込み', 'Start')
 with open("input.csv") as f:
@@ -35,24 +35,26 @@ with open("input.csv") as f:
     for row in reader:
       search_ct = row[0]
       title = row[1]
-      text = row[2]
+      text = row[2].replace("<br>", "\n")
       price = row[3]
-      traffic = row[6]
+      image = row[5]
       # --------------------
       # バリテーション 機能
       logging.info('info %s %s', 'NGワードバリテーション ', 'Start')
       for ng in readerng:
         if ng[0] in title:
+          print("titleNg:" + str(ng[0]))
           check = False
           title_ng  = title_ng  + 1
         if ng[0] in text:
+          print("textNg:" + str(ng[0]))
           check = False
           text_ng  = text_ng  + 1
         k = k + 1
       logging.info('info %s %s', 'NGワードバリテーション ', 'End')
       #-----------------------
 
-      if check == True:
+      if check == True and int(price) < 8000:
         try:
           logging.info('info %s %s', 'タイトルチェック', 'Start')
           try:
@@ -65,8 +67,10 @@ with open("input.csv") as f:
 
           y_cate = search_ct
           y_text = text
-          y_price = str(price)
-          y_traffic = str(traffic)
+          y_price = str(int(price) + int(0.1*float(price)))
+          print(y_price)
+          y_image = str(image)
+          print(y_image)
           # -------------------
           # 画像データを引っ張ってくる
           logging.info('info %s %s', '画像インポート', 'Start')
@@ -77,7 +81,8 @@ with open("input.csv") as f:
           time.sleep(1)
           sPopulation = string.ascii_lowercase + string.ascii_uppercase
           image_name = ''.join(random.sample(sPopulation,10))
-          shutil.copyfile('images/stock/image' + str(i) + ".jpg", 'images/stock/' + image_name + ".jpg")
+          # shutil.copyfile('images/stock/image' + str(i) + ".jpg", 'images/stock/' + image_name + ".jpg")
+          shutil.copyfile('images/stock/' + y_image , 'images/stock/' + image_name + ".jpg")
           time.sleep(0.5)
           new_path = shutil.move('images/stock/' + image_name + ".jpg", 'images/active/')
           time.sleep(1)
@@ -85,7 +90,7 @@ with open("input.csv") as f:
 
           #--------------------
           #ここからロボットへデータを渡す
-          robbot.robbot(y_cate, y_title, y_text, y_price, y_traffic)          
+          robbot.robbot(y_cate, y_title, y_text, y_price, y_image)          
           #--------------------
 
           # -------------------
@@ -95,6 +100,8 @@ with open("input.csv") as f:
           message.sendmessage("1")
 
           break
+      else:
+        print("危険のため出品しません")
         
       i = i + 1
       check = True
