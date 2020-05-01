@@ -13,8 +13,11 @@ import shutil
 import pyperclip
 import url_check
 import logging
+import os_check
 
 def robbot(category ,title, text, price, traffic):
+  # OSの確認
+  ctr = os_check.use_os()
   # 現在のurl取得
   url = url_check.url_check()
   # 初期ポジ
@@ -43,7 +46,7 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.3)
   pyperclip.copy(title)
   time.sleep(0.3)
-  pyautogui.hotkey('command', 'v')
+  pyautogui.hotkey(ctr, 'v')
   time.sleep(0.3)
   logging.info('info %s %s', '商品タイトル記入', 'End')
 
@@ -54,7 +57,6 @@ def robbot(category ,title, text, price, traffic):
   time.sleep(0.2)
   pyautogui.vscroll(25)
   
-
   logging.info('info %s %s', '値段', 'Start')
   # 値段入力
   time.sleep(0.3)
@@ -63,13 +65,13 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.click()
   pyperclip.copy(price)
   time.sleep(0.3)
-  pyautogui.hotkey('command', 'a')
+  pyautogui.hotkey(ctr, 'a')
   time.sleep(0.3)
-  pyautogui.hotkey('command', 'v')
+  pyautogui.hotkey(ctr, 'v')
   # 即決価格設定
   url = url_check.url_check_t(url)
   time.sleep(0.3)
-  pyautogui.moveTo(50, 630, duration=0)
+  pyautogui.moveTo(50, 640, duration=0)
   time.sleep(0.3)
   pyautogui.click()
   time.sleep(0.3)
@@ -79,9 +81,9 @@ def robbot(category ,title, text, price, traffic):
   decision_price = str(int(price) + 200) 
   pyperclip.copy(decision_price)
   time.sleep(0.3)
-  pyautogui.hotkey('command', 'a')
+  pyautogui.hotkey(ctr, 'a')
   time.sleep(0.3)
-  pyautogui.hotkey('command', 'v')
+  pyautogui.hotkey(ctr, 'v')
   logging.info('info %s %s', '値段', 'End')
   
 
@@ -118,7 +120,7 @@ def robbot(category ,title, text, price, traffic):
   pyautogui.click()
   pyperclip.copy(text)
   time.sleep(0.2)
-  pyautogui.hotkey('command', 'v')
+  pyautogui.hotkey(ctr, 'v')
 
   time.sleep(0.2)
   pyautogui.moveTo(650, 320, duration=0)
@@ -157,9 +159,9 @@ def robbot(category ,title, text, price, traffic):
   #以下のコマンドmacとwinで分ける必要がある。
   # 以下mac
   time.sleep(0.3)
-  pyautogui.hotkey('command', 'a')
+  pyautogui.hotkey(ctr, 'a')
   time.sleep(0.3)
-  pyautogui.hotkey('command', 'v')
+  pyautogui.hotkey(ctr, 'v')
   # 以下win
   # pyautogui.hotkey('ctr', 'v')
   time.sleep(0.3)

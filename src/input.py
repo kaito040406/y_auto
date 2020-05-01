@@ -34,7 +34,7 @@ with open("input.csv") as f:
     readerng = csv.reader(ngw)
     for row in reader:
       search_ct = row[0]
-      title = row[1]
+      title = "★バカ売れ★" + row[1]
       text = row[2].replace("<br>", "\n")
       price = row[3]
       image = row[5]
@@ -54,7 +54,7 @@ with open("input.csv") as f:
       logging.info('info %s %s', 'NGワードバリテーション ', 'End')
       #-----------------------
 
-      if check == True and int(price) < 8000:
+      if check == True and int(price) < 6000:
         try:
           logging.info('info %s %s', 'タイトルチェック', 'Start')
           try:
@@ -75,17 +75,17 @@ with open("input.csv") as f:
           # 画像データを引っ張ってくる
           logging.info('info %s %s', '画像インポート', 'Start')
           target_dir = 'images/active'
-          time.sleep(1)
+          time.sleep(0.5)
           shutil.rmtree(target_dir)
           os.mkdir(target_dir)
-          time.sleep(1)
+          time.sleep(0.5)
           sPopulation = string.ascii_lowercase + string.ascii_uppercase
           image_name = ''.join(random.sample(sPopulation,10))
           # shutil.copyfile('images/stock/image' + str(i) + ".jpg", 'images/stock/' + image_name + ".jpg")
           shutil.copyfile('images/stock/' + y_image , 'images/stock/' + image_name + ".jpg")
           time.sleep(0.5)
           new_path = shutil.move('images/stock/' + image_name + ".jpg", 'images/active/')
-          time.sleep(1)
+          time.sleep(0.5)
           logging.info('info %s %s', '画像インポート', 'End')
 
           #--------------------
@@ -95,9 +95,7 @@ with open("input.csv") as f:
 
           # -------------------
         except FileNotFoundError:
-          logging.info('info %s %s', '出品が終了しました', '')
-          message = y_auto_message(get_api.get_api_token())
-          message.sendmessage("1")
+          logging.error('info %s %s', 'エラーが発生しました', '')
 
           break
       else:
@@ -109,4 +107,7 @@ with open("input.csv") as f:
   f.close()
 print(title_ng)
 print(text_ng)
+logging.info('info %s %s', '出品が終了しました', '')
+message = y_auto_message(get_api.get_api_token())
+message.sendmessage("1")
       
